@@ -16,12 +16,20 @@ var problem3 = (function () {
   }; 
   
   primesFactor = function (n) {
+    var thePrimesFactor = [],
+        posiblePrime,
+        primeNum;
     for (let x=1, y=2; x<=n; x=x+2) {
       posiblePrime = x;
       if (x === 1) {
         posiblePrime = y;
       } 
+      primeNum = prime(posiblePrime);
+      if (primeNum !== 0 && n % primeNum === 0) {
+        thePrimesFactor.push(primeNum);
+      }
     }
+    console.log(thePrimesFactor);
   };
   
   return {
